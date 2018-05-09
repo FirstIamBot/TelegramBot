@@ -3,9 +3,6 @@
 # -*- coding: utf-8 -*-
 import config
 
-
-
-api_token = '68e6b02857aa41cfa2ffd3cd371e4151'
 # Настройки
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai, json
@@ -39,7 +36,7 @@ def startCommand(bot, update):
     bot.send_message(chat_id=update.message.chat_id, text='Привет, давай пообщаемся?')
 
 def textMessage(bot, update):
-    request = apiai.ApiAI(api_token).text_request()  # Токен API к Dialogflow
+    request = apiai.ApiAI(config.api_token).text_request()  # Токен API к Dialogflow
     request.lang = 'ru' # На каком языке будет послан запрос
     request.session_id = 'BatlabAIBot' # ID Сессии диалога (нужно, чтобы потом учить бота)
     request.query = update.message.text # Посылаем запрос к ИИ с сообщением от юзера
