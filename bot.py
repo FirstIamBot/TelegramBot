@@ -7,7 +7,7 @@ import config
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import apiai, json
 
-updater = Updater(config.token) # Токен API к Telegram
+updater = Updater(config.tokenBot) # Токен API к Telegram
 dispatcher = updater.dispatcher
 
 # updater = Updater(config.token) # Токен API к Telegram
